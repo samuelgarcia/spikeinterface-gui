@@ -25,7 +25,7 @@ class  SpikeinterfaceController(ControllerBase):
         self.we = waveform_extractor
         
         max_spikes_per_unit = self.we._params['max_spikes_per_unit']
-        if  max_spikes_per_unit > _MAX_SPIKE_PER_UNIT_WARNING:
+        if  max_spikes_per_unit is not None and max_spikes_per_unit > _MAX_SPIKE_PER_UNIT_WARNING:
             print(f'You have {max_spikes_per_unit} in your WaveformExtractor, the display can be slow')
             print(f'You should re run the WaveformExtractor with max_spikes_per_unit=500')
         
